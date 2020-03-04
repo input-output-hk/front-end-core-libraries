@@ -31,7 +31,7 @@ jobs:
           name: Building src
           command: npm run build
       - persist_to_workspace:
-          root: components
+          root: build
           paths:
             - "*"
   deploy:
@@ -42,7 +42,7 @@ jobs:
           keys:
             - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - attach_workspace:
-          at: components
+          at: build
       - run:
           name: Publish to NPM
           command: ./scripts/publish.sh
