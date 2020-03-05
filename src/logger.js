@@ -9,7 +9,7 @@ const info = (context) => console.log(context.id, context)
 const warn = (context) => console.warn(context.id, context)
 const error = (context) => {
   console.error(context.id, context)
-  exception({ description: context.description, fatal: Boolean(context.fatal), args: context.args || [], error: context.error })
+  exception({ description: context.description || (context.error && context.error.message) || '', fatal: Boolean(context.fatal), args: context.args || [], error: context.error })
 }
 
 const levelsLogFunctions = {
