@@ -16,10 +16,14 @@ export function getFontSize (fontSize, baseFontSize) {
  */
 export function convertThemeToMaterial (theme) {
   return createMuiTheme({
+    ...theme,
     name: theme.name,
     overrides: {
+      ...(theme.overrides || {}),
       MuiSvgIcon: {
+        ...((theme.overrides && theme.overrides.MuiSvgIcon) || {}),
         root: {
+          ...((theme.overrides && theme.overrides.MuiSvgIcon && theme.overrides.MuiSvgIcon.root) || {}),
           width: '1.4em',
           height: '1.4em'
         }
