@@ -1,6 +1,6 @@
 {
   "name": "@input-output-hk/front-end-core-libraries",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "IOHK front-end core libraries",
   "main": "build/index.js",
   "scripts": {
