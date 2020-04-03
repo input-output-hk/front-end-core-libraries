@@ -80,8 +80,8 @@ export function convertThemeToMaterial (theme) {
       },
       body2: {
         ...theme.typography.body,
-        fontSize: getFontSize(null, theme.typography.baseFontSize),
-        ...getResponsiveFontConfig(theme.typography.body, theme.typography.baseFontSize)
+        fontSize: getFontSize(theme.typography.small.fontSize, theme.typography.baseFontSize),
+        ...getResponsiveFontConfig(theme.typography.small, theme.typography.baseFontSize)
       },
       button: {
         ...theme.typography.button,
