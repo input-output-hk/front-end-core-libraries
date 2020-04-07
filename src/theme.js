@@ -11,7 +11,7 @@ function getResponsiveFontConfig (font, baseFontSize) {
   const keys = Object.keys(font).filter(key => key.match(/^@/))
   const responsiveConfig = {}
   keys.forEach(key => {
-    responsiveConfig[key] = font[key]
+    responsiveConfig[key] = { ...font[key] }
     if (responsiveConfig[key].fontSize !== undefined) responsiveConfig[key].fontSize = getFontSize(responsiveConfig[key].fontSize, baseFontSize)
   })
 
