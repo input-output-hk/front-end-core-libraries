@@ -1,4 +1,4 @@
-import { getFontSize } from './theme'
+import { getFontSize, getLetterSpacing } from './theme'
 
 describe('getFontSize', () => {
   describe('when fontSize > 0', () => {
@@ -41,5 +41,43 @@ describe('getFontSize', () => {
     test('it throws an error', () => {
       expect(() => getFontSize(null, 0)).toThrowError('getFontSize error, baseFontSize must be a number greater than 0')
     })
+  })
+})
+
+describe('getLetterSpacing', () => {
+  describe('when fallbackLetterSpacing is not a number', () => {
+    test('when fallbackLetterSpacing is null an error is thrown', () => {
+      expect(() => getLetterSpacing(1, null)).toThrowError('getLetterSpacing error, fallbackLetterSpacing must be a number')
+    })
+
+    test('when fallbackLetterSpacing is NaN an error is thrown', () => {
+      expect(() => getLetterSpacing(1, NaN)).toThrowError('getLetterSpacing error, fallbackLetterSpacing must be a number')
+    })
+  })
+
+  describe('when letterSpacing is not a number', () => {
+    test('when letterSpacing is null the fallbackLetterSpacing value is used', () => {
+      expect(getLetterSpacing(null, -1)).toEqual('-1rem')
+    })
+
+    test('when letterSpacing is NaN the fallbackLetterSpacing value is used', () => {
+      expect(getLetterSpacing(NaN, 0.4)).toEqual('0.4rem')
+    })
+
+    test('when letterSpacing is undefined the fallbackLetterSpacing value is used', () => {
+      expect(getLetterSpacing(NaN, 0)).toEqual('0rem')
+    })
+  })
+
+  test('when letterSpacing is -4 it returns -4rem', () => {
+    expect(getLetterSpacing(-4, 0.4)).toEqual('-4rem')
+  })
+
+  test('when letterSpacing is 0 it returns 0rem', () => {
+    expect(getLetterSpacing(0, 0.4)).toEqual('0rem')
+  })
+
+  test('when letterSpacing is 2.3 it returns 2.3rem', () => {
+    expect(getLetterSpacing(2.3, -0.6)).toEqual('2.3rem')
   })
 })
