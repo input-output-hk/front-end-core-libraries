@@ -7,11 +7,11 @@ export function getFontSize (fontSize, baseFontSize) {
     : `${baseFontSize / 10}rem`
 }
 
-export function getLetterSpacing (letterSpacing, baseLetterSpacing) {
-  if (typeof baseLetterSpacing !== 'number' || isNaN(baseLetterSpacing)) throw new Error('getLetterSpacing error, baseLetterSpacing must be a number')
+export function getLetterSpacing (letterSpacing, fallbackLetterSpacing) {
+  if (typeof fallbackLetterSpacing !== 'number' || isNaN(fallbackLetterSpacing)) throw new Error('getLetterSpacing error, fallbackLetterSpacing must be a number')
   return (typeof letterSpacing === 'number' && !isNaN(letterSpacing))
     ? `${letterSpacing}rem`
-    : `${baseLetterSpacing}rem`
+    : `${fallbackLetterSpacing}rem`
 }
 
 function getResponsiveFontConfig (font, baseFontSize) {

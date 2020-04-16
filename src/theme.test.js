@@ -45,26 +45,26 @@ describe('getFontSize', () => {
 })
 
 describe('getLetterSpacing', () => {
-  describe('when baseLetterSpacing is not a number', () => {
-    test('when baseLetterSpacing is null an error is thrown', () => {
-      expect(() => getLetterSpacing(1, null)).toThrowError('getLetterSpacing error, baseLetterSpacing must be a number')
+  describe('when fallbackLetterSpacing is not a number', () => {
+    test('when fallbackLetterSpacing is null an error is thrown', () => {
+      expect(() => getLetterSpacing(1, null)).toThrowError('getLetterSpacing error, fallbackLetterSpacing must be a number')
     })
 
-    test('when baseLetterSpacing is NaN an error is thrown', () => {
-      expect(() => getLetterSpacing(1, NaN)).toThrowError('getLetterSpacing error, baseLetterSpacing must be a number')
+    test('when fallbackLetterSpacing is NaN an error is thrown', () => {
+      expect(() => getLetterSpacing(1, NaN)).toThrowError('getLetterSpacing error, fallbackLetterSpacing must be a number')
     })
   })
 
   describe('when letterSpacing is not a number', () => {
-    test('when letterSpacing is null the baseLetterSpacing value is used', () => {
+    test('when letterSpacing is null the fallbackLetterSpacing value is used', () => {
       expect(getLetterSpacing(null, -1)).toEqual('-1rem')
     })
 
-    test('when letterSpacing is NaN the baseLetterSpacing value is used', () => {
+    test('when letterSpacing is NaN the fallbackLetterSpacing value is used', () => {
       expect(getLetterSpacing(NaN, 0.4)).toEqual('0.4rem')
     })
 
-    test('when letterSpacing is undefined the baseLetterSpacing value is used', () => {
+    test('when letterSpacing is undefined the fallbackLetterSpacing value is used', () => {
       expect(getLetterSpacing(NaN, 0)).toEqual('0rem')
     })
   })
