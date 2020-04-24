@@ -11,6 +11,7 @@ Must be called first to initialize GA instance.
 | argument | description | type | required | default |
 | -------- | ----------- | ---- | -------- | ------- |
 | trackingID | GA tracking id | String | ✓ | - |
+| options | Options passed to `ReactGA.initialize` | Object | ✗ | {} |
 
 ### Function - pageView
 

@@ -16,13 +16,8 @@ function getDocumentWidth () {
   return Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth)
 }
 
-const options = {
-  debug: process.env.NODE_ENV !== 'production',
-  titleCase: false
-}
-
 let initialized = false
-export function initialize (trackingID) {
+export function initialize (trackingID, options = {}) {
   logger.info({ id: 'Google Analytics', trackingID, options })
   ReactGA.initialize(trackingID, options)
   initialized = true
