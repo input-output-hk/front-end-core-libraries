@@ -47,6 +47,9 @@ export function convertThemeToMaterial (theme) {
         }
       }
     },
+    shape: {
+      borderRadius: theme.shape.borderRadius
+    },
     palette: {
       ...theme.colors,
       type: theme.type
