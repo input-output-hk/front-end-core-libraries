@@ -47,8 +47,9 @@ export function convertThemeToMaterial (theme) {
         }
       }
     },
+    shadows: (theme.shadows) ? theme.shadows : ['none'],
     shape: {
-      borderRadius: theme.shape.borderRadius
+      borderRadius: (theme.shape && theme.shape.borderRadius) ? theme.shape.borderRadius : 0
     },
     palette: {
       ...theme.colors,
